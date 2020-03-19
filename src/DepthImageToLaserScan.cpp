@@ -153,6 +153,11 @@ void DepthImageToLaserScan::set_range_limits(const float range_min, const float 
   range_max_ = range_max;
 }
 
+void DepthImageToLaserScan::set_topics(const std::string image_topic, std::string info_topic) {
+  depth_image_topic_ = image_topic;
+  camera_info_topic_ = info_topic;
+}
+
 void DepthImageToLaserScan::set_scan_height(const int scan_height){
   scan_height_ = scan_height;
 }

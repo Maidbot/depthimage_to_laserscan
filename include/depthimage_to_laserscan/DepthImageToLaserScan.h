@@ -91,6 +91,15 @@ namespace depthimage_to_laserscan
     void set_range_limits(const float range_min, const float range_max);
     
     /**
+     * Sets the topics for depth image and camera info.
+     * 
+     * @param image_topic The ROS topic on which the depth image is published.
+     * @param info_topic The ROS topic on which the camera infor is published.
+     * 
+     */
+    void set_topics(const std::string image_topic, const std::string info_topic);
+
+    /**
      * Sets the number of image rows to use in the output LaserScan.
      * 
      * scan_height is the number of rows (pixels) to use in the output.  This will provide scan_height number of radii for each
@@ -113,6 +122,9 @@ namespace depthimage_to_laserscan
      */
     void set_output_frame(const std::string output_frame_id);
 
+    std::string depth_image_topic_; // Topic to subscribe to for the depth image
+    std::string camera_info_topic_; // Topic to subscrube to for the camera info
+    
   private:
     /**
      * Computes euclidean length of a cv::Point3d (as a ray from origin)
